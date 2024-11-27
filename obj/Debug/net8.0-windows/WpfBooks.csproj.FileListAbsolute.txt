@@ -3,10 +3,8 @@ C:\Users\ilian\.ssh\Projects\WpfBooks\bin\Debug\net8.0-windows\WpfBooks.deps.jso
 C:\Users\ilian\.ssh\Projects\WpfBooks\bin\Debug\net8.0-windows\WpfBooks.runtimeconfig.json
 C:\Users\ilian\.ssh\Projects\WpfBooks\bin\Debug\net8.0-windows\WpfBooks.dll
 C:\Users\ilian\.ssh\Projects\WpfBooks\bin\Debug\net8.0-windows\WpfBooks.pdb
-C:\Users\ilian\.ssh\Projects\WpfBooks\obj\Debug\net8.0-windows\Views\MainWindow.g.cs
 C:\Users\ilian\.ssh\Projects\WpfBooks\obj\Debug\net8.0-windows\App.g.cs
 C:\Users\ilian\.ssh\Projects\WpfBooks\obj\Debug\net8.0-windows\WpfBooks_MarkupCompile.cache
-C:\Users\ilian\.ssh\Projects\WpfBooks\obj\Debug\net8.0-windows\Views\MainWindow.baml
 C:\Users\ilian\.ssh\Projects\WpfBooks\obj\Debug\net8.0-windows\WpfBooks.g.resources
 C:\Users\ilian\.ssh\Projects\WpfBooks\obj\Debug\net8.0-windows\WpfBooks.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\ilian\.ssh\Projects\WpfBooks\obj\Debug\net8.0-windows\WpfBooks.AssemblyInfoInputs.cache
@@ -25,3 +23,13 @@ C:\Users\ilian\.ssh\Projects\WpfBooks\obj\Debug\net8.0-windows\WpfBooks_MarkupCo
 C:\Users\ilian\.ssh\Projects\WpfBooks\obj\Debug\net8.0-windows\Views\AddBook.baml
 C:\Users\ilian\.ssh\Projects\WpfBooks\obj\Debug\net8.0-windows\Views\AddBook.g.cs
 C:\Users\ilian\.ssh\Projects\WpfBooks\obj\Debug\net8.0-windows\App.baml
+C:\Users\ilian\.ssh\Projects\WpfBooks\obj\Debug\net8.0-windows\Views\BookWindow.baml
+C:\Users\ilian\.ssh\Projects\WpfBooks\obj\Debug\net8.0-windows\Views\BookWindow.g.cs
+C:\Users\ilian\.ssh\Projects\WpfBooks\obj\Debug\net8.0-windows\Views\ReservationWindow.baml
+C:\Users\ilian\.ssh\Projects\WpfBooks\obj\Debug\net8.0-windows\Views\AddReservation.g.cs
+C:\Users\ilian\.ssh\Projects\WpfBooks\obj\Debug\net8.0-windows\Views\ReservationWindow.g.cs
+C:\Users\ilian\.ssh\Projects\WpfBooks\obj\Debug\net8.0-windows\Views\UpdateReservation.g.cs
+C:\Users\ilian\.ssh\Projects\WpfBooks\obj\Debug\net8.0-windows\Views\AddReservation.baml
+C:\Users\ilian\.ssh\Projects\WpfBooks\obj\Debug\net8.0-windows\Views\UpdateReservation.baml
+C:\Users\ilian\.ssh\Projects\WpfBooks\obj\Debug\net8.0-windows\Views\MainWindow.baml
+C:\Users\ilian\.ssh\Projects\WpfBooks\obj\Debug\net8.0-windows\Views\MainWindow.g.cs

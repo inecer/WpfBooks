@@ -1,59 +1,37 @@
-﻿using System.Collections.ObjectModel;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using WpfBooks.Models;
-using WpfBooks.Service;
+﻿using System.Windows;
+using System.Windows.Input;
 
 namespace WpfBooks.Views
 {
     public partial class MainWindow : Window
     {
-        private readonly ApiService _apiService = new ApiService();
-        public ObservableCollection<Book> Books { get; set; } = new ObservableCollection<Book>();
-
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = this;
-            LoadBooks();
         }
 
-        private async Task LoadBooks()
+        private void NavigateToBooks(object sender, RoutedEventArgs e)
         {
-            var books = await _apiService.GetBooksAsync();
-            foreach (var book in books)
+            var bookWindow = new BookWindow();
+            bookWindow.Show();
+        }
+
+        private void NavigateToReservations(object sender, RoutedEventArgs e)
+        {
+            var reservationWindow = new ReservationWindow();
+            reservationWindow.Show();
+        }
+        
+        private void CloseApp(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+        
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
             {
-                Books.Add(book);
-            }
-        }
-
-        private void AddBook_Click(object sender, RoutedEventArgs e)
-        {
-            var addBookWindow = new AddBook();
-            addBookWindow.ShowDialog();
-            // Rafrachis pour afficher le nouveau livre ajouté
-            Books.Clear();
-            LoadBooks();
-        }
-
-        private void UpdateBook_Click(object sender, RoutedEventArgs e)
-        {
-            if (sender is Button button && button.Tag is Book selectedBook)
-            {
-                var updateBookWindow = new UpdateBook(selectedBook);
-                updateBookWindow.ShowDialog();
-                Books.Clear();
-                LoadBooks();
-            }
-        }
-
-        private async void DeleteBook_Click(object sender, RoutedEventArgs e)
-        {
-            if (sender is Button button && button.Tag is Book selectedBook)
-            {
-                Books.Remove(selectedBook);
-                await _apiService.DeleteBookAsync(selectedBook.Id);
+                this.DragMove();
             }
         }
     }

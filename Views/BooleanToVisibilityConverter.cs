@@ -1,10 +1,10 @@
-﻿namespace WpfBooks.Converters
-{
-    using System;
-    using System.Globalization;
-    using System.Windows;
-    using System.Windows.Data;
+﻿using System;
+using System.Globalization;
+using System.Windows;
+using System.Windows.Data;
 
+namespace WpfBooks.Converters
+{
     public class BooleanToVisibilityConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)

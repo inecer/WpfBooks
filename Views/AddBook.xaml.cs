@@ -21,7 +21,7 @@ namespace WpfBooks.Views
 
             string url = $"http://localhost:5133/api/Book/CreateBook?title={title}&author={author}&available={available}";
             await _apiService.AddBookAsync(url, new Book());
-            MessageBox.Show("Book added successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show("Livre ajouté avec succès !", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
             Close();
         }
     }

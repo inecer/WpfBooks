@@ -5,7 +5,7 @@ using WpfBooks.Service;
 
 namespace WpfBooks.ViewModels
 {
-    public class MainViewModel : BaseViewModel
+    public class BookViewModel : BaseViewModel
     {
         private readonly ApiService _apiService;
 
@@ -23,7 +23,7 @@ namespace WpfBooks.ViewModels
             set { _reservations = value; OnPropertyChanged(nameof(Reservations)); }
         }
 
-        public MainViewModel()
+        public BookViewModel()
         {
             _apiService = new ApiService();
             LoadBooks();

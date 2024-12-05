@@ -7,156 +7,175 @@
         WindowStyle="None"
         Background="Transparent"
         MouseDown="Window_MouseDown">
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="Window.Loaded">
+            <BeginStoryboard>
+                <Storyboard RepeatBehavior="Forever">
+                    <!-- Animation pour le premier GradientStop -->
+                    <DoubleAnimation 
+                        Storyboard.TargetName="GradientStop1" 
+                        Storyboard.TargetProperty="Offset"
+                        From="0.0" To="1.0" Duration="0:0:4" AutoReverse="True" />
+                
+                    <!-- Animation pour le deuxième GradientStop -->
+                    <DoubleAnimation 
+                        Storyboard.TargetName="GradientStop2" 
+                        Storyboard.TargetProperty="Offset"
+                        From="1.0" To="2.0" Duration="0:0:4" AutoReverse="True" />
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Window.Triggers>
     <Border BorderBrush="#CCCCCC" BorderThickness="2">
-    <Grid>
-        <!-- Dégradé d'arrière-plan -->
-        <Grid.Background>
-            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                <GradientStop Color="#1F1C2C" Offset="0.0"/>
-                <GradientStop Color="#928DAB" Offset="1.0"/>
-            </LinearGradientBrush>
-        </Grid.Background>
+        <Grid>
+            <!-- Dégradé d'arrière-plan animé -->
+            <Grid.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0" x:Name="AnimatedGradientBrush">
+                    <GradientStop Color="#1F1C2C" Offset="0.0" x:Name="GradientStop1"/>
+                    <GradientStop Color="#928DAB" Offset="1.0" x:Name="GradientStop2"/>
+                </LinearGradientBrush>
+            </Grid.Background>
 
-        <!-- Titre de l'application -->
-        <TextBlock Text="Bienvenue sur le CRUD Administrateur" 
-                   HorizontalAlignment="Center" VerticalAlignment="Top"
-                   FontSize="28" FontWeight="Bold" Foreground="White"
-                   Margin="0,40,0,0" Opacity="0">
-            <TextBlock.Triggers>
-                <EventTrigger RoutedEvent="Loaded">
-                    <BeginStoryboard>
-                        <Storyboard>
-                            <DoubleAnimation Storyboard.TargetProperty="Opacity"
-                                             From="0" To="1" Duration="0:0:1.5"/>
-                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(TranslateTransform.Y)"
-                                             From="-20" To="0" Duration="0:0:1.5"/>
-                        </Storyboard>
-                    </BeginStoryboard>
-                </EventTrigger>
-            </TextBlock.Triggers>
-            <TextBlock.RenderTransform>
-                <TranslateTransform Y="-20"/>
-            </TextBlock.RenderTransform>
-        </TextBlock>
+            <!-- Titre de l'application -->
+            <TextBlock Text="Bienvenue sur le CRUD Administrateur" 
+                       HorizontalAlignment="Center" VerticalAlignment="Top"
+                       FontSize="28" FontWeight="Bold" Foreground="White"
+                       Margin="0,40,0,0" Opacity="0">
+                <TextBlock.Triggers>
+                    <EventTrigger RoutedEvent="Loaded">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                                 From="0" To="1" Duration="0:0:1.5"/>
+                                <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(TranslateTransform.Y)"
+                                                 From="-20" To="0" Duration="0:0:1.5"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </TextBlock.Triggers>
+                <TextBlock.RenderTransform>
+                    <TranslateTransform Y="-20"/>
+                </TextBlock.RenderTransform>
+            </TextBlock>
 
-        <!-- Boutons modernes -->
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-    <!-- Bouton Gestion des Livres -->
-    <Button Content="Gestion des Livres"
-            Width="300" Height="60" FontSize="18" Foreground="White"
-            Background="#FF6F00" Cursor="Hand" BorderThickness="0"
-            Click="NavigateToBooks" Margin="0,0,0,30">
-        <Button.Style>
-            <Style TargetType="Button">
-                <Setter Property="RenderTransform">
-                    <Setter.Value>
-                        <ScaleTransform ScaleX="1" ScaleY="1"/>
-                    </Setter.Value>
-                </Setter>
-                <Style.Triggers>
-                    <Trigger Property="IsMouseOver" Value="True">
-                        <Setter Property="RenderTransform">
-                            <Setter.Value>
-                                <ScaleTransform ScaleX="1.1" ScaleY="1.1"/>
-                            </Setter.Value>
-                        </Setter>
-                        <Setter Property="Background" Value="#FF8F00"/>
-                    </Trigger>
-                </Style.Triggers>
-            </Style>
-        </Button.Style>
-        <Button.Template>
-            <ControlTemplate TargetType="Button">
-                <Grid>
-                    <Border Background="{TemplateBinding Background}"
-                            CornerRadius="15" />
-                    <ContentPresenter HorizontalAlignment="Center"
-                                      VerticalAlignment="Center"/>
-                </Grid>
-            </ControlTemplate>
-        </Button.Template>
-    </Button>
+            <!-- Boutons modernes -->
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <!-- Bouton Gestion des Livres -->
+                <Button Content="Gestion des Livres"
+                        Width="300" Height="60" FontSize="18" Foreground="White"
+                        Background="#FF6F00" Cursor="Hand" BorderThickness="0"
+                        Click="NavigateToBooks" Margin="0,0,0,30">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="RenderTransform">
+                                <Setter.Value>
+                                    <ScaleTransform ScaleX="1" ScaleY="1"/>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="RenderTransform">
+                                        <Setter.Value>
+                                            <ScaleTransform ScaleX="1.1" ScaleY="1.1"/>
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Background" Value="#FF8F00"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Grid>
+                                <Border Background="{TemplateBinding Background}"
+                                        CornerRadius="15" />
+                                <ContentPresenter HorizontalAlignment="Center"
+                                                  VerticalAlignment="Center"/>
+                            </Grid>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
 
-    <!-- Bouton Gestion des Réservations -->
-    <Button Content="Gestion des Réservations"
-            Width="300" Height="60" FontSize="18" Foreground="White"
-            Background="#4CAF50" Cursor="Hand" BorderThickness="0"
-            Click="NavigateToReservations">
-        <Button.Style>
-            <Style TargetType="Button">
-                <Setter Property="RenderTransform">
-                    <Setter.Value>
-                        <ScaleTransform ScaleX="1" ScaleY="1"/>
-                    </Setter.Value>
-                </Setter>
-                <Style.Triggers>
-                    <Trigger Property="IsMouseOver" Value="True">
-                        <Setter Property="RenderTransform">
-                            <Setter.Value>
-                                <ScaleTransform ScaleX="1.1" ScaleY="1.1"/>
-                            </Setter.Value>
-                        </Setter>
-                        <Setter Property="Background" Value="#66BB6A"/>
-                    </Trigger>
-                </Style.Triggers>
-            </Style>
-        </Button.Style>
-        <Button.Template>
-            <ControlTemplate TargetType="Button">
-                <Grid>
-                    <Border Background="{TemplateBinding Background}"
-                            CornerRadius="15" />
-                    <ContentPresenter HorizontalAlignment="Center"
-                                      VerticalAlignment="Center"/>
-                </Grid>
-            </ControlTemplate>
-        </Button.Template>
-    </Button>
-</StackPanel>
-        
-        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="40" >
-            <!-- Bouton Fermer -->
-            <Button Width="30" Height="30" HorizontalAlignment="Right" Margin="0,5,10,5"
-                    Background="Transparent" BorderThickness="0" Cursor="Hand"
-                    ToolTip="Fermer l'application" Click="CloseApp">
-                <Button.Template>
-                    <ControlTemplate TargetType="Button">
-                        <Grid>
-                            <!-- Cercle -->
-                            <Ellipse Name="ellipse" Fill="#FF3B3B" Width="30" Height="30" />
-                            <!-- Croix -->
-                            <TextBlock Text="✕" FontSize="20" FontWeight="Bold" Foreground="White"
-                                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Grid>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="ellipse" Property="Fill" Value="#FF5555"/>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
+                <!-- Bouton Gestion des Réservations -->
+                <Button Content="Gestion des Réservations"
+                        Width="300" Height="60" FontSize="18" Foreground="White"
+                        Background="#4CAF50" Cursor="Hand" BorderThickness="0"
+                        Click="NavigateToReservations">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="RenderTransform">
+                                <Setter.Value>
+                                    <ScaleTransform ScaleX="1" ScaleY="1"/>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="RenderTransform">
+                                        <Setter.Value>
+                                            <ScaleTransform ScaleX="1.1" ScaleY="1.1"/>
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Background" Value="#66BB6A"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Grid>
+                                <Border Background="{TemplateBinding Background}"
+                                        CornerRadius="15" />
+                                <ContentPresenter HorizontalAlignment="Center"
+                                                  VerticalAlignment="Center"/>
+                            </Grid>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </StackPanel>
+
+            <Grid HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="40">
+                <!-- Bouton Fermer -->
+                <Button Width="30" Height="30" HorizontalAlignment="Right" Margin="0,5,10,5"
+                        Background="Transparent" BorderThickness="0" Cursor="Hand"
+                        ToolTip="Fermer l'application" Click="CloseApp">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Grid>
+                                <!-- Cercle -->
+                                <Ellipse Name="ellipse" Fill="#FF3B3B" Width="30" Height="30" />
+                                <!-- Croix -->
+                                <TextBlock Text="✕" FontSize="20" FontWeight="Bold" Foreground="White"
+                                           HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter TargetName="ellipse" Property="Fill" Value="#FF5555"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </Grid>
+
+            <!-- Animation en bas de page -->
+            <TextBlock Text="Gestion des Livres et des Réservations !" 
+                       HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                       FontSize="14" Foreground="#CCCCCC" Margin="0,0,0,20">
+                <TextBlock.RenderTransform>
+                    <TranslateTransform Y="0"/>
+                </TextBlock.RenderTransform>
+                <TextBlock.Triggers>
+                    <EventTrigger RoutedEvent="Loaded">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="RenderTransform.Y"
+                                                 From="10" To="0" Duration="0:0:1.5" 
+                                                 RepeatBehavior="Forever" AutoReverse="True"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </TextBlock.Triggers>
+            </TextBlock>
         </Grid>
-        
-        <!-- Animation en bas de page -->
-        <TextBlock Text="Gestion des Livres et des Réservations !" 
-                   HorizontalAlignment="Center" VerticalAlignment="Bottom"
-                   FontSize="14" Foreground="#CCCCCC" Margin="0,0,0,20">
-            <TextBlock.RenderTransform>
-                <TranslateTransform Y="0"/>
-            </TextBlock.RenderTransform>
-            <TextBlock.Triggers>
-                <EventTrigger RoutedEvent="Loaded">
-                    <BeginStoryboard>
-                        <Storyboard>
-                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.Y"
-                                             From="10" To="0" Duration="0:0:1.5" 
-                                             RepeatBehavior="Forever" AutoReverse="True"/>
-                        </Storyboard>
-                    </BeginStoryboard>
-                </EventTrigger>
-            </TextBlock.Triggers>
-        </TextBlock>
-    </Grid>
     </Border>
 </Window>
